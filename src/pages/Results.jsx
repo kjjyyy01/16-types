@@ -9,8 +9,8 @@ const Results = () => {
             ISTJ, Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem unde neque quisquam ad aut
             odit vitae animi. Officia aut tempora fugiat placeat, eius, ea, atque cumque nemo veniam rerum consequatur.
           </p>
-          <button>공개로 전환</button>
-          <button>삭제</button>
+          <button type="button">공개로 전환</button>
+          <button type="button">삭제</button>
         </li>
       </ul>
     </div>
