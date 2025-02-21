@@ -10,6 +10,8 @@ body {
 li {
   @apply bg-card;
   @apply rounded-md;
+  @apply p-8;
+  @apply shadow-[5px_5px_5px_#DDBC89];
 }
 
 button {
