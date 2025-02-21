@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply text-text;
+  @apply bg-background;
+}
+
+li {
+  @apply bg-card;
+  @apply rounded-md;
+}
+
+button {
+  @apply bg-button;
+  @apply text-buttontext;
+  @apply rounded-md;
+  @apply px-5 py-3;
+}
+
+p {
+  @apply text-lg;
+}
