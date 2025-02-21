@@ -21,6 +21,11 @@ button {
   @apply px-5 py-3;
 }
 
+input {
+  @apply w-64;
+  @apply py-1 px-2;
+}
+
 p {
   @apply text-lg;
 }
