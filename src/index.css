@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply text-text;
+  @apply bg-background;
+}
+
+li {
+  @apply bg-card;
+  @apply rounded-md;
+  @apply p-8;
+  @apply shadow-[5px_5px_5px_#DDBC89];
+}
+
+button {
+  @apply bg-button;
+  @apply text-buttontext;
+  @apply rounded-md;
+  @apply px-5 py-3;
+}
+
+input {
+  @apply w-64;
+  @apply py-1 px-2;
+}
+
+p {
+  @apply text-lg;
+}
