@@ -15,8 +15,8 @@ const PrivateRoute = () => {
 const Router = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route element={<PrivateRoute />}>
@@ -24,8 +24,8 @@ const Router = () => {
             <Route path="/results" element={<Results />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
-        </Routes>
-      </Layout>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
