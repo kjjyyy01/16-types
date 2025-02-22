@@ -8,7 +8,7 @@ const Header = () => {
       <form className="flex justify-between items-center">
         <span>
           <a href="/">
-            <img src="/public/main-logo.png" alt="16타입 로고" className="h-20 m-4" />
+            <img src="/main-logo.png" alt="16타입 메인 로고" className="h-20 m-4" />
           </a>
         </span>
         <section>
