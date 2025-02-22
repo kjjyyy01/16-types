@@ -5,7 +5,7 @@ import Test from "../pages/Test";
 import Results from "../pages/Results";
 import Profile from "../pages/Profile";
 import useBearsStore from "../zustand/bearsStore";
-import Layout from "../components/Layout/Layout";
+import Header from "../components/Layout/Header";
 
 const PrivateRoute = () => {
   const { isLogin } = useBearsStore((state) => state);
@@ -15,15 +15,14 @@ const PrivateRoute = () => {
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/test" element={<Test />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/profile" element={<Profile />} />
-          </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/test" element={<Test />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
