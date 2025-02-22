@@ -15,9 +15,6 @@ const Header = () => {
           <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/login")}>
             로그인
           </button>
-          <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/signup")}>
-            회원가입
-          </button>
         </section>
       </form>
     </div>

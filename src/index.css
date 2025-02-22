@@ -22,7 +22,7 @@ button {
 }
 
 input {
-  @apply w-64;
+  @apply w-full;
   @apply py-1 px-2;
 }
 
