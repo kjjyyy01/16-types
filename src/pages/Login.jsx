@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { authAPI } from "../axios/api";
 import { useNavigate } from "react-router-dom";
+import useBearsStore from "../zustand/bearsStore";
 
 const Login = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -10,6 +11,13 @@ const Login = () => {
     nickname: "",
   });
   const navigate = useNavigate();
+  const { login, isLogin } = useBearsStore((state) => state);
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
+  }, [isLogin, navigate]);
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -33,6 +41,7 @@ const Login = () => {
       });
       alert("로그인이 완료되었습니다.");
       localStorage.setItem("accessToken", data.accessToken);
+      login();
       navigate("/");
       resetForm();
     } else {
