@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import useBearsStore from "../../zustand/bearsStore";
 
 const Header = () => {
-  const navigate = useNavigate();
   const { isLogin, logout } = useBearsStore((state) => state);
 
   return (
@@ -19,7 +17,11 @@ const Header = () => {
               로그아웃
             </button>
           ) : (
-            <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/login")}>
+            <button
+              className="mr-5 bg-inherit text-text"
+              type="button"
+              onClick={() => (window.location.href = "/login")}
+            >
               로그인
             </button>
           )}
