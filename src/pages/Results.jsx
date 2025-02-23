@@ -32,7 +32,6 @@ const Results = () => {
     return <div>데이터 조회 중 에러 발생...</div>;
   }
 
-  console.log(results);
   return (
     <div>
       <h1>모든 검사 결과</h1>
