@@ -1,17 +1,52 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { getResult, removeResult } from "../api/testResult";
+
 const Results = () => {
+  const queryClient = useQueryClient();
+
+  const {
+    data: results,
+    isPending,
+    isError,
+  } = useQuery({
+    queryKey: ["testResults"],
+    queryFn: getResult,
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: removeResult,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["testResults"]);
+    },
+  });
+
+  const onRemoveHandler = (id) => {
+    mutate(id);
+  };
+
+  if (isPending) {
+    return <div>데이터 로딩중...</div>;
+  }
+
+  if (isError) {
+    return <div>데이터 조회 중 에러 발생...</div>;
+  }
+
+  console.log(results);
   return (
     <div>
       <h1>모든 검사 결과</h1>
-      <ul>
-        <li>
-          <h2>ISTJ</h2>
-          <p>
-            ISTJ, Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem unde neque quisquam ad aut
-            odit vitae animi. Officia aut tempora fugiat placeat, eius, ea, atque cumque nemo veniam rerum consequatur.
-          </p>
-          <button type="button">공개로 전환</button>
-          <button type="button">삭제</button>
-        </li>
+      <ul className="mb-10">
+        {results.map((result) => {
+          return (
+            <li key={result.id}>
+              <h3>검사 결과: {result.result}</h3>
+              <button type="button" onClick={() => onRemoveHandler(result.id)}>
+                삭제
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
