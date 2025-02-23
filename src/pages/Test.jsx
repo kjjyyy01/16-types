@@ -41,7 +41,6 @@ const Test = () => {
     });
     setIsResult(true);
   };
-  console.log(answers);
   return (
     <>
       {!isResult ? (

@@ -1,3 +1,36 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "dedc",
+      "nickname": "",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-23T14:59:11.620Z",
+      "userId": ""
+    },
+    {
+      "id": "3a9b",
+      "nickname": "",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-23T15:02:02.734Z",
+      "userId": ""
+    },
+    {
+      "id": "0abb",
+      "nickname": "",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-23T15:02:52.053Z",
+      "userId": ""
+    },
+    {
+      "id": "046a",
+      "nickname": "",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-23T15:53:22.608Z",
+      "userId": ""
+    }
+  ]
 }
