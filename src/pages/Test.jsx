@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { questions } from "../data/questions";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addResult } from "../api/testResult";
 import { calculateMBTI } from "../utils/mbtiCalculator";
+import { authAPI } from "../axios/api";
 
 const Test = () => {
   const [isResult, setIsResult] = useState(false);
   const [answers, setAnswer] = useState([]);
+  const [nickname, setNickname] = useState("");
+  const [userId, setUserId] = useState("");
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    const getLoginData = async () => {
+      const accessToken = localStorage.getItem("accessToken");
+
+      const response = await authAPI.get("/user", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      console.log(response);
+      setNickname(response.data.nickname);
+      setUserId(response.data.id);
+    };
+    getLoginData();
+  }, []);
 
   const { mutate } = useMutation({
     mutationFn: addResult,
@@ -31,13 +48,12 @@ const Test = () => {
     e.preventDefault();
 
     const mbtiResult = calculateMBTI(answers);
-    console.log(mbtiResult);
     mutate({
-      nickname: "",
+      nickname: nickname,
       result: mbtiResult,
       visibility: true,
       date: new Date(),
-      userId: "",
+      userId,
     });
     setIsResult(true);
   };
