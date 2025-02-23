@@ -5,7 +5,7 @@ import Test from "../pages/Test";
 import Results from "../pages/Results";
 import Profile from "../pages/Profile";
 import useBearsStore from "../zustand/bearsStore";
-import Header from "../components/Layout/Header";
+import Header from "../components/Header";
 
 const PrivateRoute = () => {
   const { isLogin } = useBearsStore((state) => state);
