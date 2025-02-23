@@ -63,4 +63,5 @@ const answers = [
   // 추가 질문들...
 ];
 
-export const mbtiResult = calculateMBTI(answers);
+const mbtiResult = calculateMBTI(answers);
+console.log(mbtiResult);
