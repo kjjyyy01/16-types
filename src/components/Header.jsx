@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useBearsStore from "../../zustand/bearsStore";
+import useBearsStore from "../zustand/bearsStore";
 
 const Header = () => {
   const { isLogin, logout } = useBearsStore((state) => state);
