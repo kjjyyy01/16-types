@@ -14,14 +14,7 @@ li {
   @apply shadow-[5px_5px_5px_#DDBC89];
 }
 
-button[type="button"] {
-  @apply bg-button;
-  @apply text-buttontext;
-  @apply rounded-md;
-  @apply px-5 py-3;
-}
-
-button[type="submit"] {
+button {
   @apply bg-button;
   @apply text-buttontext;
   @apply rounded-md;
