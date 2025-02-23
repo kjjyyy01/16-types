@@ -1,14 +1,26 @@
 import { jsonServerAPI } from "../axios/api";
 
-export const addResult = async (newResult) => {
-  const response = await jsonServerAPI.post("/testResults", newResult);
-  return response.data;
+export const addResult = async (testResult) => {
+  try {
+    await jsonServerAPI.post("/testResults", testResult);
+  } catch (error) {
+    console.error(error);
+  }
 };
-export const updateResult = async (newResult) => {
-  const response = await jsonServerAPI.patch("/testResults", newResult);
-  return response.data;
+
+export const removeResult = async (id) => {
+  try {
+    await jsonServerAPI.delete(`/testResults/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
 };
-export const removeResult = async (newResult) => {
-  const response = await jsonServerAPI.delete("/testResults", newResult);
-  return response.data;
+
+export const getResult = async () => {
+  try {
+    const response = await jsonServerAPI.get("/testResults");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
