@@ -15,9 +15,14 @@ const Header = () => {
         </span>
         <section>
           {isLogin ? (
-            <button className="mr-5 bg-inherit text-text" type="button" onClick={logout}>
-              로그아웃
-            </button>
+            <>
+              <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/results")}>
+                모든 결과 보기
+              </button>
+              <button className="mr-5 bg-inherit text-text" type="button" onClick={logout}>
+                로그아웃
+              </button>
+            </>
           ) : (
             <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/login")}>
               로그인
