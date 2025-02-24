@@ -24,3 +24,12 @@ export const getResult = async () => {
     console.error(error);
   }
 };
+
+export const updateProfile = async () => {
+  try {
+    const response = await jsonServerAPI.patch(`/testResults`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

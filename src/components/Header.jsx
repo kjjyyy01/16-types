@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useBearsStore from "../zustand/bearsStore";
 
 const Header = () => {
   const { isLogin, logout } = useBearsStore((state) => state);
-  const navigate = useNavigate();
 
   return (
     <div className="bg-header">
@@ -16,17 +15,26 @@ const Header = () => {
         <section>
           {isLogin ? (
             <>
-              <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/results")}>
-                모든 결과 보기
-              </button>
+              <Link to={"/profile"}>
+                <button className="mr-5 bg-inherit text-text" type="button">
+                  마이페이지
+                </button>
+              </Link>
+              <Link to={"/results"}>
+                <button className="mr-5 bg-inherit text-text" type="button">
+                  모든 결과 보기
+                </button>
+              </Link>
               <button className="mr-5 bg-inherit text-text" type="button" onClick={logout}>
                 로그아웃
               </button>
             </>
           ) : (
-            <button className="mr-5 bg-inherit text-text" type="button" onClick={() => navigate("/login")}>
-              로그인
-            </button>
+            <Link to={"/login"}>
+              <button className="mr-5 bg-inherit text-text" type="button">
+                로그인
+              </button>
+            </Link>
           )}
         </section>
       </form>

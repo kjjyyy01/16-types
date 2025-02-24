@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { questions } from "../data/questions";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addResult } from "../api/testResult";
+import { addResult } from "../api/testResultsAPI";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { authAPI } from "../axios/api";
 
@@ -19,12 +19,11 @@ const Test = () => {
   useEffect(() => {
     const getLoginData = async () => {
       const accessToken = localStorage.getItem("accessToken");
-
-      const response = await authAPI.get("/user", {
+      const { data } = await authAPI.get("/user", {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      setNickname(response.data.nickname);
-      setUserId(response.data.id);
+      setNickname(data.nickname);
+      setUserId(data.id);
     };
     getLoginData();
   }, []);
