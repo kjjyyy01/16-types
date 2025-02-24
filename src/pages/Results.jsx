@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getResult, removeResult } from "../api/testResult";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
+import { getResult, removeResult } from "../api/testResultsAPI";
 
 const Results = () => {
   const queryClient = useQueryClient();
