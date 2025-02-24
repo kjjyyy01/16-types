@@ -3,11 +3,9 @@ import { mbtiDescriptions } from "../utils/mbtiCalculator";
 import { getResult, removeResult } from "../api/testResultsAPI";
 import useBearsStore from "../zustand/bearsStore";
 
-//writerId와 userId가 같으면 버튼 보여줌
 const Results = () => {
   const queryClient = useQueryClient();
   const loginUserId = useBearsStore((state) => state.user.userId);
-  console.log("loginuser>>", loginUserId);
 
   const {
     data: results,
@@ -36,8 +34,7 @@ const Results = () => {
   if (isError) {
     return <div>데이터 조회 중 에러 발생...</div>;
   }
-
-  const writerId = results.map((result) => result.userId).join("");
+  console.log(results);
 
   return (
     <div>
@@ -50,9 +47,9 @@ const Results = () => {
               <p>{result.nickname}</p>
               <p>{result.date}</p>
               <p>{mbtiDescriptions[result.result]}</p>
-              {writerId === loginUserId && (
+              {result.userId === loginUserId && (
                 <>
-                  <button className="mr-5">공개로 전환</button>
+                  <button className="mr-5">비공개로 전환</button>
                   <button onClick={() => onRemoveHandler(result.id)}>삭제</button>
                 </>
               )}
