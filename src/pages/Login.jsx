@@ -41,7 +41,7 @@ const Login = () => {
       });
       alert("로그인이 완료되었습니다.");
       localStorage.setItem("accessToken", data.accessToken);
-      login();
+      login(data);
       navigate("/");
       resetForm();
     } else {
