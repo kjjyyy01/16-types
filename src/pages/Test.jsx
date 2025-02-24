@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { questions } from "../data/questions";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -16,16 +16,17 @@ const Test = () => {
   const mbtiResult = calculateMBTI(answers);
   const mbtiResultDescription = mbtiDescriptions[mbtiResult];
 
-  const getLoginData = async () => {
-    const accessToken = localStorage.getItem("accessToken");
-
-    const response = await authAPI.get("/user", {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    });
-    setNickname(response.data.nickname);
-    setUserId(response.data.id);
-  };
-  getLoginData();
+  useEffect(() => {
+    const getLoginData = async () => {
+      const accessToken = localStorage.getItem("accessToken");
+      const { data } = await authAPI.get("/user", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      setNickname(data.nickname);
+      setUserId(data.id);
+    };
+    getLoginData();
+  }, []);
 
   const onHandleRadioChange = (e, type, id) => {
     setAnswer((prev) => {
