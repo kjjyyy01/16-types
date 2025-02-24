@@ -38,19 +38,19 @@ const Results = () => {
   console.log(results);
 
   return (
-    <div>
-      <h1>모든 검사 결과</h1>
-      <ul className="mb-10">
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="mt-14 mb-14">모든 검사 결과</h1>
+      <ul className="w-5/6">
         {results.map((result) => {
           return (
-            <li key={result.id}>
+            <li className="mb-5" key={result.id}>
               <h3>검사 결과: {result.result}</h3>
-              <p>{result.nickname}</p>
-              <p>{result.date}</p>
-              <p>{mbtiDescriptions[result.result]}</p>
+              <p className="my-3">{result.nickname}</p>
+              <p className="my-3">검사 날짜: {result.date}</p>
+              <p className="my-3">{mbtiDescriptions[result.result]}</p>
               {result.userId === loginUserId && (
                 <>
-                  <button className="mr-5">비공개로 전환</button>
+                  <button className="mr-3">비공개로 전환</button>
                   <button onClick={() => onRemoveHandler(result.id)}>삭제</button>
                 </>
               )}

@@ -29,3 +29,13 @@ input {
 p {
   @apply text-lg;
 }
+
+h1 {
+  @apply text-5xl;
+  @apply font-bold;
+}
+
+h3 {
+  @apply text-xl;
+  @apply font-bold;
+}
