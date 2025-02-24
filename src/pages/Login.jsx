@@ -41,9 +41,11 @@ const Login = () => {
       });
       alert("로그인이 완료되었습니다.");
       localStorage.setItem("accessToken", data.accessToken);
-      login(data);
+      localStorage.setItem("loginUser", JSON.stringify(data));
+      login();
       navigate("/");
       resetForm();
+      console.log("data", data);
     } else {
       await authAPI.post("/register", {
         id: form.id,
