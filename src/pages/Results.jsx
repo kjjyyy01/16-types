@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
 import { getResult, removeResult } from "../api/testResultsAPI";
 import useBearsStore from "../zustand/bearsStore";
-import { QUERY_KEYS } from "../contants/queryKeys";
+import { QUERY_KEYS } from "../contents/queryKeys";
 
 const Results = () => {
   const queryClient = useQueryClient();
