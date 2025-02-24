@@ -65,7 +65,7 @@ const Test = () => {
         <main>
           <form onSubmit={onSubmitHandler} className="flex flex-col justify-center items-center gap-10 mt-14">
             <h1>MBTI 유형 검사</h1>
-            <ul className="w-2/5">
+            <ul className="w-3/5">
               {questions.map((question) => (
                 <li key={question.id} className="flex flex-col mb-5">
                   <p className="font-semibold">{question.question}</p>
