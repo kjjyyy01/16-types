@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
 import { getResult, removeResult } from "../api/testResultsAPI";
 
+//writerId와 userId가 같으면 버튼 보여줌
 const Results = () => {
   const queryClient = useQueryClient();
 
@@ -33,6 +34,9 @@ const Results = () => {
     return <div>데이터 조회 중 에러 발생...</div>;
   }
 
+  const userId = results.map((result) => result.userId).join("");
+
+  console.log(userId);
   return (
     <div>
       <h1>모든 검사 결과</h1>
@@ -44,8 +48,12 @@ const Results = () => {
               <p>{result.nickname}</p>
               <p>{result.date}</p>
               <p>{mbtiDescriptions[result.result]}</p>
+              {/* {writerId === userId && (
+                <> */}
               <button className="mr-5">공개로 전환</button>
               <button onClick={() => onRemoveHandler(result.id)}>삭제</button>
+              {/* </>
+              )} */}
             </li>
           );
         })}
