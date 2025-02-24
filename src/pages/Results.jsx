@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getResult, removeResult } from "../api/testResult";
+import { mbtiDescriptions } from "../utils/mbtiCalculator";
 
 const Results = () => {
   const queryClient = useQueryClient();
@@ -40,9 +41,11 @@ const Results = () => {
           return (
             <li key={result.id}>
               <h3>검사 결과: {result.result}</h3>
-              <button type="button" onClick={() => onRemoveHandler(result.id)}>
-                삭제
-              </button>
+              <p>{result.nickname}</p>
+              <p>{result.date}</p>
+              <p>{mbtiDescriptions[result.result]}</p>
+              <button className="mr-5">공개로 전환</button>
+              <button onClick={() => onRemoveHandler(result.id)}>삭제</button>
             </li>
           );
         })}
