@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+//* 메인 페이지
 const Home = () => {
   return (
     <div className="flex items-center justify-center flex-col gap-14 mt-20">

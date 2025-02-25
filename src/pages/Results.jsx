@@ -1,5 +1,6 @@
 import ResultsList from "../components/ResultsList";
 
+//* 모든 검사 결과를 보여주는 페이지
 const Results = () => {
   return (
     <div className="flex flex-col justify-center items-center">

@@ -25,15 +25,6 @@ export const getResult = async () => {
   }
 };
 
-export const updateProfile = async () => {
-  try {
-    const response = await jsonServerAPI.patch(`/testResults`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 export const updateResultVisibility = async (data) => {
   try {
     const response = await jsonServerAPI.patch(`/testResults/${data.id}`, { visibility: data.visibility });

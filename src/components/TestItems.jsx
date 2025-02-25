@@ -1,5 +1,6 @@
 import { questions } from "../data/questions";
 
+//* 검사할 질문들을 렌더링해주는 컴포넌트
 const TestItems = ({ setAnswer }) => {
   const onHandleRadioChange = (e, type, id) => {
     setAnswer((prev) => {

@@ -1,5 +1,6 @@
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
 
+//* 모든 검사결과를 렌더링해주고, 식제, 공개/비공개 기능을 제공하는 컴포넌트
 const ResultsItems = ({ rmResult, updateVisibility, filteredResults, loginUserId }) => {
   const onRemoveHandler = (id) => {
     rmResult.mutate(id);

@@ -6,6 +6,7 @@ import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { authAPI } from "../axios/api";
 import TestList from "../components/TestList";
 
+//* 테스트를 진행하고 결과를 db에 추가하고 검사 결과를 보여주는 컴포넌트
 const Test = () => {
   const [isResult, setIsResult] = useState(false);
   const [answers, setAnswer] = useState([]);

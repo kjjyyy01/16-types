@@ -4,6 +4,7 @@ import { authAPI } from "../axios/api";
 const Profile = () => {
   const [nickname, setNickname] = useState("");
 
+  //* 기존 닉네임 불러오는 함수 최초 리렌더링 후 1회만 불러오도록 작성
   useEffect(() => {
     const getLoginData = async () => {
       const accessToken = localStorage.getItem("accessToken");
@@ -15,6 +16,7 @@ const Profile = () => {
     getLoginData();
   }, []);
 
+  //* 프로필(닉네임) 변경 함수
   const updateNickname = async (e) => {
     e.preventDefault();
     const accessToken = localStorage.getItem("accessToken");

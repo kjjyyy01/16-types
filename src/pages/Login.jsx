@@ -32,8 +32,11 @@ const Login = () => {
     });
   };
 
+  //* 로그인모드가 true면 JWT서버에 로그인 요청 및 직접 입력한 id.password로 로그인
+  //* false면 회원가입 요청 및 직접입력한 id, password, nickname으로 회원가입
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+
     if (isLoginMode) {
       const { data } = await authAPI.post("/login", {
         id: form.id,

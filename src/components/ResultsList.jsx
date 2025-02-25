@@ -4,6 +4,7 @@ import useAuthStore from "../zustand/authStore";
 import { QUERY_KEYS } from "../contents/queryKeys";
 import { getResult, removeResult, updateResultVisibility } from "../api/testResultsAPI";
 
+//* 모든 검사 결과를 불러오고, 공개/비공개 할 데이터 필터링
 const ResultsList = () => {
   const queryClient = useQueryClient();
   const loginUserId = useAuthStore((state) => state.user.userId);
