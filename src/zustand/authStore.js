@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useBearsStore = create((set) => {
+const useAuthStore = create((set) => {
   return {
     isLogin: !!localStorage.getItem("accessToken"),
     user: JSON.parse(localStorage.getItem("loginUser")) || null,
@@ -21,4 +21,4 @@ const useBearsStore = create((set) => {
   };
 });
 
-export default useBearsStore;
+export default useAuthStore;

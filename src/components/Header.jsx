@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import useBearsStore from "../zustand/bearsStore";
+import useAuthStore from "../zustand/authStore";
 
 const Header = () => {
-  const { isLogin, logout } = useBearsStore((state) => state);
+  const { isLogin, logout } = useAuthStore((state) => state);
 
   return (
     <div className="bg-header">

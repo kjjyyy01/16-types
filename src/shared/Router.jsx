@@ -4,11 +4,11 @@ import Login from "../pages/Login";
 import Test from "../pages/Test";
 import Results from "../pages/Results";
 import Profile from "../pages/Profile";
-import useBearsStore from "../zustand/bearsStore";
 import Header from "../components/Header";
+import useAuthStore from "../zustand/authStore";
 
 const PrivateRoute = () => {
-  const { isLogin } = useBearsStore((state) => state);
+  const { isLogin } = useAuthStore((state) => state);
   return <>{isLogin ? <Outlet /> : <Navigate to="/login" />}</>;
 };
 
