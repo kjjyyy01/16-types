@@ -19,6 +19,7 @@ button {
   @apply text-buttontext;
   @apply rounded-md;
   @apply px-5 py-3;
+  @apply hover:bg-header hover:text-text;
 }
 
 input {
@@ -28,4 +29,14 @@ input {
 
 p {
   @apply text-lg;
+}
+
+h1 {
+  @apply text-5xl;
+  @apply font-bold;
+}
+
+h3 {
+  @apply text-xl;
+  @apply font-bold;
 }

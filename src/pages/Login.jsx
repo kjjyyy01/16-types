@@ -41,9 +41,11 @@ const Login = () => {
       });
       alert("로그인이 완료되었습니다.");
       localStorage.setItem("accessToken", data.accessToken);
-      login(data);
+      localStorage.setItem("loginUser", JSON.stringify(data));
+      login();
       navigate("/");
       resetForm();
+      console.log("data", data);
     } else {
       await authAPI.post("/register", {
         id: form.id,
@@ -58,9 +60,9 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <main className="w-1/5 mt-20 bg-card flex flex-col items-center justify-center p-8 rounded-md shadow-[0_0_10px_#DDBC89]">
-        <form onSubmit={onSubmitHandler} className="flex flex-col items-center justify-center gap-10 w-4/5">
-          <h1 className="text-5xl font-bold">{isLoginMode ? "로그인" : "회원가입"}</h1>
+      <main className="w-1/4 h-90 mt-20 bg-card flex flex-col items-center justify-center p-6 rounded-md shadow-[0_0_10px_#DDBC89]">
+        <form onSubmit={onSubmitHandler} className="flex flex-col items-center justify-center gap-10 w-3/5">
+          <h1>{isLoginMode ? "로그인" : "회원가입"}</h1>
           <input
             type="text"
             name="id"

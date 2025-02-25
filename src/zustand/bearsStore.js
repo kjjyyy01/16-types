@@ -3,12 +3,11 @@ import { create } from "zustand";
 const useBearsStore = create((set) => {
   return {
     isLogin: !!localStorage.getItem("accessToken"),
-    user: null,
-    login: (data) => {
+    user: JSON.parse(localStorage.getItem("loginUser")) || null,
+    login: () => {
       set((state) => {
         return {
           login: (state.isLogin = true),
-          user: data,
         };
       });
     },

@@ -46,7 +46,7 @@ const Test = () => {
       nickname: nickname,
       result: mbtiResult,
       visibility: true,
-      date: new Date(),
+      date: new Date().toLocaleDateString("ko-KR"),
       userId,
     });
     setIsResult(true);
@@ -64,8 +64,8 @@ const Test = () => {
       {!isResult ? (
         <main>
           <form onSubmit={onSubmitHandler} className="flex flex-col justify-center items-center gap-10 mt-14">
-            <h1 className="text-5xl font-bold">MBTI 유형 검사</h1>
-            <ul className="w-2/5">
+            <h1>MBTI 유형 검사</h1>
+            <ul className="w-3/5">
               {questions.map((question) => (
                 <li key={question.id} className="flex flex-col mb-5">
                   <p className="font-semibold">{question.question}</p>
@@ -93,7 +93,7 @@ const Test = () => {
       ) : (
         <main className="w-full flex justify-center items-center">
           <div className="h-full w-1/3 mt-14 p-10 flex flex-col justify-start bg-card shadow-[5px_5px_5px_#DDBC89] rounded-md ">
-            <h1 className="text-5xl font-bold mb-10">검사결과: {mbtiResult}</h1>
+            <h1 className="mb-10">검사결과: {mbtiResult}</h1>
             <p className="mb-10">{mbtiResultDescription}</p>
             <Link to={"/results"} className="flex justify-center">
               <button className="w-1/3">모든 결과 보러가기</button>

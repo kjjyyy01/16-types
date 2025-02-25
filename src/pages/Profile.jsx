@@ -35,10 +35,11 @@ const Profile = () => {
   };
 
   return (
-    <div>
-      <h1>프로필 수정</h1>
-      <form onSubmit={updateNickname}>
+    <div className="mt-10 flex flex-col justify-center items-center ">
+      <h1 className="my-10">프로필 수정</h1>
+      <form className="flex flex-col items-center" onSubmit={updateNickname}>
         <input
+          className="mb-3"
           type="text"
           pattern="^[a-z0-9]{2,10}$"
           value={nickname}
