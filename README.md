@@ -45,7 +45,7 @@ zustand, tanstackQuery를 사용한  mbit 검사 사이트 "16 Types"<br/>
 <div>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
   <img src="https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg" height="40" alt="zustand logo"  />
-  <img src="https://somwpkzlplaovldnfahk.supabase.co/storage/v1/object/public/heropy.dev_posts/HZaKIE/s0.png" height="40" alt="tanstackQuery logo"  />
+  <img src="https://images.seeklogo.com/logo-png/43/1/react-query-logo-png_seeklogo-435661.png" height="40" alt="tanstackQuery logo"  />
 </div>
 
 
