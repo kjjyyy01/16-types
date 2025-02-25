@@ -35,12 +35,6 @@ const Results = () => {
     },
   });
 
-  const filteredResults = results.filter((result) => result.visibility === true || result.userId === loginUserId);
-
-  const changeVisibilityHandler = (id, visibility) => {
-    updateVisibility.mutate({ id, visibility: !visibility });
-  };
-
   const onRemoveHandler = (id) => {
     rmResult.mutate(id);
   };
@@ -52,6 +46,11 @@ const Results = () => {
   if (isError) {
     return <div>데이터 조회 중 에러 발생...</div>;
   }
+  const filteredResults = results.filter((result) => result.visibility === true || result.userId === loginUserId);
+
+  const changeVisibilityHandler = (id, visibility) => {
+    updateVisibility.mutate({ id, visibility: !visibility });
+  };
 
   return (
     <div className="flex flex-col justify-center items-center">
