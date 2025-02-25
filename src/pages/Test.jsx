@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { questions } from "../data/questions";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addResult } from "../api/testResultsAPI";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { authAPI } from "../axios/api";
+import TestList from "../components/TestList";
 
 const Test = () => {
   const [isResult, setIsResult] = useState(false);
@@ -27,17 +27,6 @@ const Test = () => {
     };
     getLoginData();
   }, []);
-
-  const onHandleRadioChange = (e, type, id) => {
-    setAnswer((prev) => {
-      const existingAnswer = prev.find((data) => data.id === id);
-      if (existingAnswer) {
-        return prev.map((data) => (data.id === id ? { ...data, answer: e.target.value } : data));
-      } else {
-        return [...prev, { id, type, answer: e.target.value }];
-      }
-    });
-  };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -65,30 +54,9 @@ const Test = () => {
         <main>
           <form onSubmit={onSubmitHandler} className="flex flex-col justify-center items-center gap-10 mt-14">
             <h1>MBTI 유형 검사</h1>
-            <ul className="w-3/5">
-              {questions.map((question) => (
-                <li key={question.id} className="flex flex-col mb-5">
-                  <p className="font-semibold">{question.question}</p>
-                  {question.options.map((option, index) => (
-                    <label key={index} htmlFor={`radio-${question.id}-${index}`}>
-                      <input
-                        type="radio"
-                        name={`answer-${question.id}`}
-                        id={`radio-${question.id}-${index}`}
-                        className="w-auto m-4"
-                        value={question.type.split("/")[index]}
-                        onChange={(e) => onHandleRadioChange(e, question.type, question.id)}
-                        required
-                      />
-                      {option}
-                    </label>
-                  ))}
-                </li>
-              ))}
-            </ul>
+            <TestList setAnswer={setAnswer} />
             <button className="mb-14">검사 완료</button>
           </form>
-          ``
         </main>
       ) : (
         <main className="w-full flex justify-center items-center">
