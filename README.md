@@ -11,7 +11,8 @@ zustand, tanstackQuery를 사용한  mbit 검사 사이트 "16 Types"<br/>
 <br />
 
 ### 💬 배포 링크
-https://16-types.vercel.app/
+React배포: https://16-types.vercel.app/
+json-server배포: https://glitch.com/edit/#!/hickory-freckle-buckthorn?path=README.md%3A1%3A0
 
 ### ✨ 화면 구성
 ![Image](https://github.com/user-attachments/assets/15caef2f-03fc-4b88-baba-eb70433980dd)
