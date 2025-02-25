@@ -69,7 +69,7 @@ const Login = () => {
             value={form.id}
             onChange={onChangeHandler}
             placeholder="아이디"
-            pattern="^([a-z0-9]){6,50}$"
+            pattern="^([a-z0-9]){6,15}$"
             required
           />
           <input
@@ -88,7 +88,7 @@ const Login = () => {
               value={form.nickname}
               onChange={onChangeHandler}
               placeholder="닉네임"
-              pattern="^{2,6}$"
+              pattern="^{2,10}$"
               required
             />
           )}
