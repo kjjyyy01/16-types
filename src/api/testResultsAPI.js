@@ -33,3 +33,12 @@ export const updateProfile = async () => {
     console.error(error);
   }
 };
+
+export const updateResultVisibility = async (data) => {
+  try {
+    const response = await jsonServerAPI.patch(`/testResults/${data.id}`, { visibility: data.visibility });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
