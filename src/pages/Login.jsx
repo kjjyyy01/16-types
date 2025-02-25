@@ -48,7 +48,6 @@ const Login = () => {
       login();
       navigate("/");
       resetForm();
-      console.log("data", data);
     } else {
       await authAPI.post("/register", {
         id: form.id,
