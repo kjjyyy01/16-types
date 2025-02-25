@@ -48,8 +48,53 @@ https://16-types.vercel.app/
 <br />
 
 ## 📁 프로젝트 구조
-```markdown
-📁
+```
+📁mbti-test
+├─ 📁public
+│  ├─ main-logo.png
+│  └─ website-logo.png
+├─ 📁src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ index.css
+│  ├─ main.jsx
+│  ├─ 📁api
+│  │  └─ testResultsAPI.js
+│  ├─ 📁axios
+│  │  └─ api.js
+│  ├─ 📁components
+│  │  ├─ Header.jsx
+│  │  ├─ ResultsItems.jsx
+│  │  ├─ ResultsList.jsx
+│  │  ├─ TestItems.jsx
+│  │  └─ TestList.jsx
+│  ├─ 📁contents
+│  │  └─ queryKeys.js
+│  ├─ 📁data
+│  │  └─ questions.js
+
+│  ├─ 📁pages
+│  │  ├─ Home.jsx
+│  │  ├─ Login.jsx
+│  │  ├─ Profile.jsx
+│  │  ├─ Results.jsx
+│  │  └─ Test.jsx
+│  ├─ 📁shared
+│  │  └─ Router.jsx
+│  ├─ 📁utils
+│  │  └─ mbtiCalculator.js
+│  └─ 📁zustand
+│     └─ authStore.js
+├─ .env
+├─ eslint.config.js
+├─ index.html
+├─ package.json
+├─ postcss.config.js
+├─ tailwind.config.js
+├─ vercel.json
+├─ vite.config.js
+├─ README.md
+└─ yarn.lock
 
 ```
 <br />
