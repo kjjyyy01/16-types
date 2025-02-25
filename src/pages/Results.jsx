@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
-import { getResult, removeResult } from "../api/testResultsAPI";
+import { getResult, removeResult, updateResultVisibility } from "../api/testResultsAPI";
 import useBearsStore from "../zustand/bearsStore";
 import { QUERY_KEYS } from "../contents/queryKeys";
 
@@ -17,15 +17,32 @@ const Results = () => {
     queryFn: getResult,
   });
 
-  const { mutate } = useMutation({
+  const rmResult = useMutation({
     mutationFn: removeResult,
     onSuccess: () => {
-      queryClient.invalidateQueries(["testResults"]);
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.TEST_RESULTS],
+      });
     },
   });
 
+  const updateVisibility = useMutation({
+    mutationFn: updateResultVisibility,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.TEST_RESULTS],
+      });
+    },
+  });
+
+  const filteredResults = results.filter((result) => result.visibility === true || result.userId === loginUserId);
+
+  const changeVisibilityHandler = (id, visibility) => {
+    updateVisibility.mutate({ id, visibility: !visibility });
+  };
+
   const onRemoveHandler = (id) => {
-    mutate(id);
+    rmResult.mutate(id);
   };
 
   if (isPending) {
@@ -35,13 +52,12 @@ const Results = () => {
   if (isError) {
     return <div>데이터 조회 중 에러 발생...</div>;
   }
-  console.log(results);
 
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="mt-14 mb-14">모든 검사 결과</h1>
       <ul className="w-5/6">
-        {results.map((result) => {
+        {filteredResults.map((result) => {
           return (
             <li className="mb-5" key={result.id}>
               <h3>검사 결과: {result.result}</h3>
@@ -50,7 +66,9 @@ const Results = () => {
               <p className="my-3">{mbtiDescriptions[result.result]}</p>
               {result.userId === loginUserId && (
                 <>
-                  <button className="mr-3">비공개로 전환</button>
+                  <button className="mr-3" onClick={() => changeVisibilityHandler(result.id, result.visibility)}>
+                    {result.visibility === true ? "비공개로 전환" : "공개로 전환"}
+                  </button>
                   <button onClick={() => onRemoveHandler(result.id)}>삭제</button>
                 </>
               )}
