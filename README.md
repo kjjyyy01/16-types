@@ -95,8 +95,11 @@ https://16-types.vercel.app/
 ├─ vite.config.js
 ├─ README.md
 └─ yarn.lock
-
 ```
+<br />
+## 트러블 슈팅
+- https://velog.io/@kjjyyy01/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85-Vecel%EB%B0%B0%ED%8F%AC-%ED%9B%84-url%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EC%A7%81%EC%A0%91-%EC%9D%B4%EB%8F%99-%EB%B6%88%EA%B0%80-%ED%98%84%EC%83%81
+
 <br />
 
 ## 프로젝트 소감
