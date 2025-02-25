@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { authAPI } from "../axios/api";
 import { useNavigate } from "react-router-dom";
-import useBearsStore from "../zustand/bearsStore";
+import useAuthStore from "../zustand/authStore";
 
 const Login = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -11,7 +11,7 @@ const Login = () => {
     nickname: "",
   });
   const navigate = useNavigate();
-  const { login, isLogin } = useBearsStore((state) => state);
+  const { login, isLogin } = useAuthStore((state) => state);
 
   useEffect(() => {
     if (isLogin) {
